@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="C++primer 5th笔记, C/C++">
+    <meta name="keywords" content="数据结构笔记, C/C++">
     <meta name="description" content="Hi">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>C++primer 5th笔记 | C/C++</title>
+    <title>数据结构笔记 | C/C++</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">C++primer 5th笔记</h1>
+                    <h1 class="description center-align post-title">数据结构笔记</h1>
                 </div>
             </div>
         </div>
@@ -443,7 +443,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-09-01
+                    2021-09-08
                 </div>
                 
 
@@ -464,191 +464,22 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="C-primer-5th"><a href="#C-primer-5th" class="headerlink" title="C++primer 5th"></a><strong>C++primer 5th</strong></h1><h2 id="第一部分-C-基础"><a href="#第一部分-C-基础" class="headerlink" title="第一部分 C ++基础"></a>第一部分 C ++基础</h2><h3 id="第二章-变量和基本类型"><a href="#第二章-变量和基本类型" class="headerlink" title="第二章 变量和基本类型"></a>第二章 变量和基本类型</h3><h4 id="2-1-基本内置类型"><a href="#2-1-基本内置类型" class="headerlink" title="2.1 基本内置类型"></a>2.1 基本内置类型</h4><p>1、算数类型：整形和浮点型</p>
-<p>bool、int、char、float、double、short、long、long long…</p>
-<p>除了布尔类型和扩展的字符型，其他整形分为带符号和无符号类型。</p>
-<p>2、类型转换</p>
-<p>注意有符号和无符号类型切勿混用。</p>
-<h4 id="2-2-变量"><a href="#2-2-变量" class="headerlink" title="2.2 变量"></a>2.2 变量</h4><p>1、变量=对象</p>
-<p>初始化与赋值区别：初始化是创建变量时给予一个初值，赋值是把当前值抹除，用一个新值代替。</p>
-<p>2、生命而非定义extern</p>
-<p>ertern int i ：仅仅声明，而int  i ：声明且定义。</p>
-<h4 id="2-3-复合类型"><a href="#2-3-复合类型" class="headerlink" title="2.3 复合类型"></a>2.3 复合类型</h4><p>1、引用：起别名，必须初始化</p>
-<p>2、指针</p>
-<h4 id="2-4-const限定符"><a href="#2-4-const限定符" class="headerlink" title="2.4 const限定符"></a>2.4 const限定符</h4><p>1、const</p>
-<p>顶层和底层的分别：顶层const:指的是本身不可以被改变</p>
-<p>​                                   底层const:指的是自身所指对象不可以被改变</p>
-<p>​                                   用于声明引用的const都是底层const            </p>
-<p>2、指针与const：</p>
-<p>指向常量的指针：要想存放变量的地址，必须使用指向常量的指针：const int *p</p>
-<p>常量指针：指针自身是一个对象，不可变。int *const p = &amp;pi   （常量指针必须初始化！！！）</p>
-<p>指向常量的常量指针。const  int *const p (不仅指针本身不可变，指针所指对象也不可变)</p>
-<h4 id="2-5-处理类型"><a href="#2-5-处理类型" class="headerlink" title="2.5 处理类型"></a><strong>2.5 处理类型</strong></h4><p>1、类型别名 typedef</p>
-<p>例如：typedef  double base，*p // base是double的同义词，p是double同义词</p>
-<p>2、auto</p>
-<p>编译器去分析变量的类型</p>
-<p>3、decltype</p>
-<p>选择并返回操作数的数据类型</p>
-<p>例如：decltype(f()) sum=x; // sum的返回类型就是x的类型</p>
-<p>decltype和引用需要注意：双括号是引用</p>
-<p>例如：const int ci=0,&amp;cj=ci;</p>
-<p>​           decltype(ci) x=0;      //x的类型是const int</p>
-<p>​           decltype (cj) y=x;     //y的类型是const int*,y绑定到变量x</p>
-<p>​           decltype (cj) z;           //错误，z是引用，没初始化</p>
-<p>decltype和auto的区别：</p>
-<p> decltype在处理顶层const和引用的方式与auto有些许不同，如果decltype使用的表达式是一个变量，则decltype返回该变量的类型(包括顶层const和引用在内)。</p>
-<p>2.6 自定义数据结构</p>
-<p>函数分文件编写一般有4个步骤</p>
-<ol>
-<li>创建后缀名为.h的头文件  </li>
-<li>创建后缀名为.cpp的源文件</li>
-<li>在头文件中写函数的声明</li>
-<li>在源文件中写函数的定义</li>
-</ol>
-<h3 id="第三章-字符串、向量和数组"><a href="#第三章-字符串、向量和数组" class="headerlink" title="第三章 字符串、向量和数组"></a>第三章 字符串、向量和数组</h3><h4 id="3-1-using声明"><a href="#3-1-using声明" class="headerlink" title="3.1 using声明"></a>3.1 using声明</h4><p>using namespace ：：name；//name可以是cin、cout…</p>
-<h4 id="3-2-标准库类型string"><a href="#3-2-标准库类型string" class="headerlink" title="3.2 标准库类型string"></a>3.2 标准库类型string</h4><p>1、定义和初始化的几种方式</p>
-<p>例如：string s1;            //s1是个空串</p>
-<p>​           string s2(s1)；   //s2是s1的副本</p>
-<p>​           string s2=s1；   //s2是s1的副本</p>
-<p>​           string(n,”c”);       //n个c组成的串</p>
-<p>2、string操作</p>
-<p>①反复读取，直到文件末尾</p>
-<p>例如：string word；</p>
-<p>​           while(cin&gt;&gt;word) </p>
-<p>②getline读取一整行</p>
-<p>③empty和size</p>
-<p>empty：判断是否为空并返回一个布尔值</p>
-<p>size：返回string对象的长度，字符个数，无符号值，能存下任何string对象大小</p>
-<p>④string对象相加，至少有一个是string</p>
-<p>⑤对每个字符处理用for</p>
-<p>对单个字符则用下标和迭代器。</p>
-<h4 id="3-3-标准库类型vector"><a href="#3-3-标准库类型vector" class="headerlink" title="3.3 标准库类型vector"></a>3.3 标准库类型vector</h4><p>1、定义和初始化</p>
-<p>常用方法：vector<T> v1                 //</p>
-<p>​                   vector<T>  v2(v1)          //v2包含v1所有元素</p>
-<p>​                   vector<T> v3(n,val)       //v3中n个元素，每个元素为val</p>
-<p>​                   vector<T>  v5={a,b,c}</p>
-<p>​                   vector<T>  v5{a,b,c}    </p>
-<p>注意括号，花括号表示具体值，括号表示个数</p>
-<p>2、vector添加元素</p>
-<p>先创建空的vector，然后利用push_back添加函数</p>
-<p>3、vector下标</p>
-<p>可以用来访问已存在元素而不能用于添加元素</p>
-<h4 id="3-4-迭代器"><a href="#3-4-迭代器" class="headerlink" title="3.4 迭代器"></a>3.4 迭代器</h4><p>1、使用迭代器</p>
-<p>begin:第一个元素</p>
-<p>end:最后一个元素</p>
-<p>2、运算符</p>
-<p>++iter：下一个元素</p>
-<p>– iter：上一个元素</p>
-<p>*iter：返回迭代器iter所指元素的引用</p>
-<p>iter-&gt;mem=(*iter).mem :解引用iter并获取名为mem的成员</p>
-<h4 id="3-5-数组"><a href="#3-5-数组" class="headerlink" title="3.5 数组"></a>3.5 数组</h4><h4 id="3-6-多维数组"><a href="#3-6-多维数组" class="headerlink" title="3.6 多维数组"></a>3.6 多维数组</h4><p>数组的数组</p>
-<h3 id="第四章-表达式"><a href="#第四章-表达式" class="headerlink" title="第四章 表达式"></a>第四章 表达式</h3><p>1、重载运算符operator</p>
-<p>2、除以和求模： 求模操作符号不同时，结果依赖于机器。但规律一定：如果求模的结果随分子的符号，则除出来的值向零一侧取整；如果求模与分母的符号匹配，则除出来的值像负无穷一侧取整。</p>
-<p>3、短路求值： 逻辑与和逻辑或操作符总是先计算其左操作数，当仅靠左操作数的值无法确定结果时，才会求解其右操作数。具有危险边界时适用。</p>
-<p>4、位操作符： 对于符号位的处理依赖于机器，所以强烈建议使用 unsigned 整型操作数。</p>
-<p>5、位运算与 bitset： 标准库提供的 bitset 操作更直接、更容易阅读和书写、正确使用的可能性更高，并且对象的大小不受 unsigned 数的位数限制。</p>
-<p>6、移位操作符：中等优先级。</p>
-<p>7、赋值操作符： 赋值操作符的左操作数必须是非 const 的左值。数组名是不可修改的左值，因此不能作为赋值操作的目标。而下标和解引用操作符都返回左值，因此当作用于非 const 数组时，其结果可作为赋值操作的左操作数：int ia[10]; ia[0] = 0; ia = 0;*</p>
-<p>8、赋值操作符：低优先级、右结合性（与常规二元运算符不同）</p>
-<p>9、复合赋值操作符： 可以是以下十种：+= -= = /= %= &lt;&lt;= &gt;&gt;= &amp;= ^= |=。使用复合赋值操作时，左操作数只计算了一次；而使用相似的长表达式时，该操作数则计算了两次，第一次作为右操作数，而第二次则用作左操作数。</p>
-<p>10、自增和自减操作符： 前置操作返回对象本身，是左值。而后置操作返回的则是右值。对于 int 型对象和指针，编译器可优化掉这项额外工作，但对于更多的复杂迭代器类型，可能会花费更大的代价。因此，养成使用前置操作这个好习惯，就不必操心性能差异的问题。</p>
-<p>11、箭头操作符： 对于指向类类型的指针变量，访问其成员时可用p-&gt;foo;取代(p).foo;。</p>
-<p>12、条件操作符： 是C++中唯一的三元操作符，它允许将简单的 if-else 判断语句嵌入表达式中。</p>
-<p>13、逗号操作符： 逗号表达式是一组由逗号分隔的表达式，这些表达式从左向右计算。逗号表达式的记过是其右边表达式的值，如果是左值结果也是左值。</p>
-<p>14、优先级和结合性： 优先级决定操作数的结合方式，结合性决定操作数的计算顺序。P.161（但这二者都不能定义求值顺序P.163）<br>15、动态创建对象 new： 定义变量时，必须指定其数据类型和名字。而动态创建对象时，只需指定其数据类型，而不必为对象命名。取而代之的是，new 表达式返回指向新创建对象的指针。</p>
-<p>16、动态创建对象的默认初始化：int <em>pi = new int;和int pi = new int();是不一样的，前者没有定义，后者初始值为0。</em></p>
-<p>17、撤销动态创建的对象 delete： 如果指针指向不是用 new 分配的内存地址，则在该指针上使用 delete 是不合法的。（编译器甚至无法发现错误。例如：int i; int pi = &i; delete pi;）在 delete 之后，重设指针的值</p>
-<p>18、零值指针的删除： C++保证：删除0值的指针时安全的。（虽然这样做没有任何意义。）</p>
-<p>19、动态内存的管理容易出错： 1、删除失败，该块内存无法返还给自由存储区，导致内存泄漏（不易发现，程序运行一段时间后内存不足才知道）；2、读写已删除的对象。（删除后立即置0可避免）；3、同一块内存空间连续两次delete。（自由存储区可能会被第二次删除破坏）</p>
-<p>20、隐式类型转换： 1、在混合类型的表达式中，操作数被转换为相同类型；2、用作条件的表达式被转换为 bool 类型；3、表达式初始化或者赋值某个变量，被转换为该变量的类型。</p>
-<p>算术转换：研究大量例题是帮助理解算术转换的最好方法。P.170<br>其他隐式转换： </p>
-<p>指针转换：数组大多情况自动转换为指向第一个元素的指针；任意数据类型的指针都可转换为void类型；整型数值常量0可转换为任意指针类型。<br>命名的强制类型转换： dynamic_cast、const_cast、static_cast、reinterpret_cast。</p>
-<h3 id="第五章-语句"><a href="#第五章-语句" class="headerlink" title="第五章 语句"></a>第五章 语句</h3><h4 id="5-3-条件语句"><a href="#5-3-条件语句" class="headerlink" title="5.3 条件语句"></a>5.3 条件语句</h4><p>if、while、switch、</p>
-<h4 id="5-4-迭代语句"><a href="#5-4-迭代语句" class="headerlink" title="5.4 迭代语句"></a>5.4 迭代语句</h4><p>即循环语句，for、do while…</p>
-<h4 id="5-5-跳转语句"><a href="#5-5-跳转语句" class="headerlink" title="5.5 跳转语句"></a>5.5 跳转语句</h4><p>break、continue</p>
-<p>goto：跳转</p>
-<p>异常检测throw</p>
-<h3 id="第六章-函数"><a href="#第六章-函数" class="headerlink" title="第六章 函数"></a>第六章 函数</h3><h4 id="6-1-函数基础"><a href="#6-1-函数基础" class="headerlink" title="6.1 函数基础"></a>6.1 函数基础</h4><p>1、函数包括返回类型、函数名称、形参</p>
-<p>2、 形参和函数体内部变量称为局部变量</p>
-<p>3、实参和形参区别</p>
-<p>形参：函数定义的时的参数—也就是无赋值的变量（作用是说明参数的类型）</p>
-<p>实参：调用函数时使用的参数—也就是有赋值的变量（函数实际操作的对象）</p>
-<p>4、</p>
-<p>知识点1：局部变量：形参和函数体内部定义的变量统称为局部变量（注意其作用域）</p>
-<p>知识点2：局部静态对象：知道程序的结束才被销毁的对象，不受块的约束</p>
-<h4 id="6-2-参数传递"><a href="#6-2-参数传递" class="headerlink" title="6.2 参数传递"></a>6.2 参数传递</h4><p>1、值传递</p>
-<p>变量改动不影响初始值</p>
-<p>指针形参则会所指对象的值</p>
-<p>2、引用传递</p>
-<p>可以改变实参</p>
-<p>使用引用避免拷贝</p>
-<p>无需在函数中改变的参数应该为常量引用</p>
-<p>3、const形参</p>
-<p>实参初始化形参会忽略顶层const</p>
-<p>例如：const int i=1;</p>
-<p>​            int j=i； //忽略顶层const</p>
-<p>void fcn(const int i) //能读取i，但不能写值</p>
-<p>void fcn(int i)            //错误，重复定义i</p>
-<p>3、指针或引用实参与const</p>
-<p>字面值可以初始常量引用</p>
-<p>4、数组形参</p>
-<p>（1）数组不可拷贝，不可用值传递数组，为函数传递数组实际是传递指向数组首地址的指针</p>
-<p>（2）管理指针形参的方法：</p>
-<p>①使用标记指定数组长度</p>
-<p>②使用标准库规范</p>
-<p>使用begin和end函数，如：printf（begin(i),end(i)）;</p>
-<p>③显式传递一个表示数组大小的实参</p>
-<p>定义一个表示数组大小的形参</p>
-<p>5、数组引用形参</p>
-<p>例如：int （&amp;arr）[10]; //括号不可少</p>
-<p>6、传递多维数组</p>
-<p>真正传递的是指向数组首元素的指针，首元素是一个数组</p>
-<p>例如：int *a[10]   //10个指针构成的数组</p>
-<p>​           int (*a)[10] //指向含有10个整数数组的指针</p>
-<p>7、main函数非空形参</p>
-<p>8、含有可变形参的函数</p>
-<p>initializer_list,也是一种模板类型</p>
-<p>省略符形参：void a(b,…)</p>
-<h4 id="6-3-返回类型和return语句"><a href="#6-3-返回类型和return语句" class="headerlink" title="6.3 返回类型和return语句"></a>6.3 返回类型和return语句</h4><p>1、无返回值函数</p>
-<p>没有返回值适用于void，而void不一定非要有return，最后会隐性的执行return</p>
-<p>2、有返回值函数</p>
-<p>循环中含有return时在最后也应该有一个return</p>
-<p>返回值不要返回局部变量的引用或指针</p>
-<p>3、main函数返回值</p>
-<p>main函数可以没有return，最后编译器会自动补上return 0；</p>
-<p>4、返回数组指针</p>
-<p>函数不能返回数组，返回数组的指针或引用比较麻烦，但可以用类型别名</p>
-<p>(1)尾置返回类型</p>
-<p>例如：auto func(int i) -&gt;int (*)[10]</p>
-<p>(2)使用decltype</p>
-<p>适用于当已知返回函数返回的指针指向那个数组</p>
-<h4 id="6-4-函数重载"><a href="#6-4-函数重载" class="headerlink" title="6.4 函数重载"></a>6.4 函数重载</h4><p>重载函数：函数的命名相同，但是形参列表不同</p>
-<p>1、重载和const形参</p>
-<p>顶层const和底层const无法区分</p>
-<p>例如：int a(const b)和 int a(b)无法区分</p>
-<p>除非是引用或者指针</p>
-<p>例如：int a(const b&amp;)和 int a(b&amp;)</p>
-<p>2、重载与作用域</p>
-<p>C++中命名查找发生在类型检查之前</p>
-<h4 id="6-5-特殊用途语言特性"><a href="#6-5-特殊用途语言特性" class="headerlink" title="6.5 特殊用途语言特性"></a>6.5 特殊用途语言特性</h4><p>默认实参、内联函数、constrxpr函数</p>
-<p>1、默认实参</p>
-<p>多次调用中被赋予相同的值，这个反复出现的值为函数的默认实参。</p>
-<p>使用默认实参，调用时省略就行</p>
-<p>2、内联函数</p>
-<p>3、constrxpr函数</p>
-<h4 id="6-6-函数匹配"><a href="#6-6-函数匹配" class="headerlink" title="6.6 函数匹配"></a>6.6 函数匹配</h4><h4 id="6-7-函数指针"><a href="#6-7-函数指针" class="headerlink" title="6.7 函数指针"></a>6.7 函数指针</h4><h4 id=""><a href="#" class="headerlink" title=""></a></h4><h3 id="第七章-类"><a href="#第七章-类" class="headerlink" title="第七章 类"></a>第七章 类</h3><h4 id="7-1-定义抽象数据类型"><a href="#7-1-定义抽象数据类型" class="headerlink" title="7.1 定义抽象数据类型"></a>7.1 定义抽象数据类型</h4><h4 id="7-2-访问控制与封装"><a href="#7-2-访问控制与封装" class="headerlink" title="7.2 访问控制与封装"></a>7.2 访问控制与封装</h4><h4 id="7-3-类的其他特性"><a href="#7-3-类的其他特性" class="headerlink" title="7.3 类的其他特性"></a>7.3 类的其他特性</h4><h4 id="7-4-类的作用域"><a href="#7-4-类的作用域" class="headerlink" title="7.4 类的作用域"></a>7.4 类的作用域</h4><h4 id="7-5-构造函数再探"><a href="#7-5-构造函数再探" class="headerlink" title="7.5 构造函数再探"></a>7.5 构造函数再探</h4><h4 id="7-6-类的静态成员"><a href="#7-6-类的静态成员" class="headerlink" title="7.6 类的静态成员"></a>7.6 类的静态成员</h4><h2 id="第二部分-C-标准库"><a href="#第二部分-C-标准库" class="headerlink" title="第二部分 C ++标准库"></a>第二部分 C ++标准库</h2><h3 id="第八章-IO库"><a href="#第八章-IO库" class="headerlink" title="第八章  IO库"></a>第八章  IO库</h3><h3 id="第九章-顺序容器"><a href="#第九章-顺序容器" class="headerlink" title="第九章 顺序容器"></a>第九章 顺序容器</h3><h4 id="9-1-顺序容器概述"><a href="#9-1-顺序容器概述" class="headerlink" title="9.1 顺序容器概述"></a>9.1 顺序容器概述</h4><p>1、顺序容器为程序员提供控制元素存储和访问顺序的能力</p>
-<p>2、顺序容器类型：vector、deque、list、string…</p>
-<p>3、一般使用vector</p>
-<p>4、若需要随机访问和在容器中间插入删除元素，取决于哪种操作占主导地位，哪种操作多决定容器的类型。</p>
-<p>5、如果不确定哪种容器，就使用list和vector的公共操作：使用迭代器，不使用下标，避免随机访问。</p>
-<h4 id="9-2-容器库概览"><a href="#9-2-容器库概览" class="headerlink" title="9.2 容器库概览"></a>9.2 容器库概览</h4><p>1、头文件定义。</p>
-<p>2、容器可以保存的类型几乎是任意类型，甚至是另一个容器。</p>
-<p>3、迭代器</p>
-<p>范围：[begin,end)</p>
-<p>① begin=end，则为空</p>
-<p>② begin可以递增至end，使begin==end</p>
-<p>③ 不等则至少包含一个元素</p>
-<h3 id="第十章-泛型算法"><a href="#第十章-泛型算法" class="headerlink" title="第十章 泛型算法"></a>第十章 泛型算法</h3><h3 id="第十一章-关联容器"><a href="#第十一章-关联容器" class="headerlink" title="第十一章 关联容器"></a>第十一章 关联容器</h3><h3 id="第十二章-动态内存"><a href="#第十二章-动态内存" class="headerlink" title="第十二章 动态内存"></a>第十二章 动态内存</h3>
+                <h1 id="数据结构-（严蔚敏）"><a href="#数据结构-（严蔚敏）" class="headerlink" title="数据结构      （严蔚敏）"></a>数据结构      （严蔚敏）</h1><hr>
+<h2 id="第1章-绪论"><a href="#第1章-绪论" class="headerlink" title="第1章 绪论"></a>第1章 绪论</h2><p>数据(data)是对客观事物的符号表示。在计算机科学中是指所有能输入到计算机中并被计算机程序处理的符号的总称。</p>
+<p>数据元素(data element)是数据的基本单位，在计算机程序中通常作为一个整体进行考虑和处理。</p>
+<p>数据对象(data object)是性质相同的数据元素的集合，是数据的一个子集。</p>
+<p>数据结构(data structure)又称逻辑结构，是相互之间存在一种或多种特定关系的数据元素的集合。通常有以下四类基本结构：集合、线性结构、树形结构、图状结构或网状结构。</p>
+<p>存储结构（物理结构）是数据结构在计算机中的表示（又称映像）。</p>
+<p>数据类型(data type)是一个值的集合和定义在这个值集上的一组操作的总称。</p>
+<p>抽象数据类型(AbstractData Type)是指一个数学模型以及定义在该模型上的一组操作，可细分为：原子类型、固定聚合类型、可变聚合类型。</p>
+<p>1.常用的数据结构类型：集合、线性、树形、图状。</p>
+<p>2.数据结构：</p>
+<p>逻辑结构：数据元素之间的关系<br>存储结构：数据结构在计算机中的表示。存储结构分为：顺序存储结构和链式存储结构。<br>3.算法是对特定问题求解步骤的一种描述，算法具有如下特性：有穷性、确定性、可行性、输入、输出。</p>
+<p>4.算法的度量：</p>
+<p>时间复杂度<br>空间复杂度<br>–&gt;算法分析的两个主要方面</p>
+<p>时间复杂度，O(1), O(n), O(logn), O(nlogn) 的区别+样例分析</p>
+<p>衡量一个算法是否优秀，则主要从以下几点考虑：正确性，可读性，健壮性，时间复杂度，空间复杂度</p>
+
                 
             </div>
             <hr/>
@@ -674,7 +505,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://ZhangCannon.github.io/2021/09/01/c++primer/">http://ZhangCannon.github.io/2021/09/01/c++primer/</a>
+                    <a href="http://ZhangCannon.github.io/2021/09/08/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">http://ZhangCannon.github.io/2021/09/08/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -901,9 +732,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2021/09/08/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
                     <div class="card-image">
@@ -921,9 +753,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-09-08
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-08
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -932,6 +764,7 @@
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -942,13 +775,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/08/18/%E9%BB%91%E9%A9%ACC++%E7%AC%94%E8%AE%B0/">
+                <a href="/2021/09/01/c++primer/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="黑马C++笔记">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="C++primer 5th笔记">
                         
-                        <span class="card-title">黑马C++笔记</span>
+                        <span class="card-title">C++primer 5th笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -959,7 +792,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-18
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-01
                             </span>
                         <span class="publish-author">
                             
