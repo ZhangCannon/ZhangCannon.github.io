@@ -664,7 +664,23 @@
 <p>定义array时不仅要指定元素类型，还有指定容器大小</p>
 <p>9、赋值：assign</p>
 <p>​      交换：swap</p>
-<h4 id="9-3-顺序容器操作"><a href="#9-3-顺序容器操作" class="headerlink" title="9.3 顺序容器操作"></a>9.3 顺序容器操作</h4><p>​                </p>
+<h4 id="9-3-顺序容器操作"><a href="#9-3-顺序容器操作" class="headerlink" title="9.3 顺序容器操作"></a>9.3 顺序容器操作</h4><p>1、</p>
+<p>push_back:插入尾部</p>
+<p>push_front:插入头部</p>
+<p>insert:特定位置插入，插入范围内的元素</p>
+<p> 2、emplace操作          </p>
+<p>调用emplace参数时，将参数传递给元素类型的构造函数。</p>
+<p>emplace_back:创建时会在容器管理空间中创建对象，而push_back则是创建一个临时局部对象，然后压入容器中</p>
+<p>emplace直接在容器中构造函数，传递给emplace函数的参数必须与元素类型的构造参数匹配</p>
+<p>3、空容器不能调用front和back</p>
+<p>4、删除</p>
+<p>不适用array，删除前必须保证他们是存在的</p>
+<p>pop、erase、clear</p>
+<p>5、改变容器大小</p>
+<p>resize，array不支持</p>
+<p>添加或删除都是从末尾开始</p>
+<p>6、容器操作使迭代器失效</p>
+<p>添加元素：容器是vector或者string，存储空间被重新分配，则指向容器的迭代器指针和引用都会失效，如果存储空间未被分配，则插入位置之前的迭代器指针和应用不会失效，之后的会失效</p>
 <h3 id="第十章-泛型算法"><a href="#第十章-泛型算法" class="headerlink" title="第十章 泛型算法"></a>第十章 泛型算法</h3><h3 id="第十一章-关联容器"><a href="#第十一章-关联容器" class="headerlink" title="第十一章 关联容器"></a>第十一章 关联容器</h3><h3 id="第十二章-动态内存"><a href="#第十二章-动态内存" class="headerlink" title="第十二章 动态内存"></a>第十二章 动态内存</h3>
                 
             </div>
