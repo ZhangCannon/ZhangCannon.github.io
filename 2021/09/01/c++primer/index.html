@@ -680,7 +680,23 @@
 <p>resize，array不支持</p>
 <p>添加或删除都是从末尾开始</p>
 <p>6、容器操作使迭代器失效</p>
-<p>添加元素：容器是vector或者string，存储空间被重新分配，则指向容器的迭代器指针和引用都会失效，如果存储空间未被分配，则插入位置之前的迭代器指针和应用不会失效，之后的会失效</p>
+<p>① 添加元素：容器是vector或者string，存储空间被重新分配，则指向容器的迭代器指针和引用都会失效，如果存储空间未被分配，则插入位置之前的迭代器指针和应用不会失效，之后的会失效</p>
+<p>② 迭代器的管理：保证每次改变容器的操作之后都要正确的定位迭代器，尤其是vector、deque、string</p>
+<p>③ 添加或者删除vector、deque、string元素的循环程序时必须考虑迭代器、引用和指针会失效的问题，必须保证每个循环步中更新迭代器、指针、引用，如果调用insert、erase函数则更新迭代器很容易。</p>
+<p>​    erase调用后不必递增迭代器，因为erase返回的迭代器已经指向下一个序列，insert则不是，需注意递增个数</p>
+<p>④ 不用保存end返回的迭代器</p>
+<h4 id="9-4-vector对象如何增长"><a href="#9-4-vector对象如何增长" class="headerlink" title="9.4 vector对象如何增长"></a>9.4 vector对象如何增长</h4><p>1、元素添加</p>
+<p>vector或string中添加元素：当不得不获取新的空间时，vector或者string会分配比新的空间更加大的内存空间，容器预留这些空间作为备用。</p>
+<p>2、管理容器大小</p>
+<p>① 操作</p>
+<p>shrink_to_fit只适用于vector、string、deque</p>
+<p>capacity和reserve只适用于vector和string</p>
+<p>c.shrink_to_fit ： 将capacity()减少为与size()相同大小</p>
+<p>c.capacity ： 不重新分配内存的话，c可以保存多少元素</p>
+<p>c.reserve(n) : 分配至少能容纳n个元素的空间</p>
+<p>② reserve</p>
+<p>reserve并不能改变容器中元素的数量，它仅能影响vector预先分配多大的内存空间</p>
+<p>只有需要的空间大于当前容量时reserve调用才会影响vector容量。如果需要的空间大于当前容量，reserve至少分配与需求一样大的内存空间(可能更大)</p>
 <h3 id="第十章-泛型算法"><a href="#第十章-泛型算法" class="headerlink" title="第十章 泛型算法"></a>第十章 泛型算法</h3><h3 id="第十一章-关联容器"><a href="#第十一章-关联容器" class="headerlink" title="第十一章 关联容器"></a>第十一章 关联容器</h3><h3 id="第十二章-动态内存"><a href="#第十二章-动态内存" class="headerlink" title="第十二章 动态内存"></a>第十二章 动态内存</h3>
                 
             </div>
