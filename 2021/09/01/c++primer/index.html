@@ -696,7 +696,32 @@
 <p>c.reserve(n) : 分配至少能容纳n个元素的空间</p>
 <p>② reserve</p>
 <p>reserve并不能改变容器中元素的数量，它仅能影响vector预先分配多大的内存空间</p>
-<p>只有需要的空间大于当前容量时reserve调用才会影响vector容量。如果需要的空间大于当前容量，reserve至少分配与需求一样大的内存空间(可能更大)</p>
+<p>只有需要的空间大于当前容量时reserve调用才会影响vector容量。如果需要的空间大于当前容量，reserve至少分配与需求一样大的内存空间(可能更大)。如果需要的空间小于或等于当前容量，reserve什么也不做，如果需要的空间小于当前容量，容器不回退回内存空间。</p>
+<p>resize改变元素的数目，不是容量</p>
+<p>③ 退回不需要的空间</p>
+<p>shrink_to_fit可以用来要求deque、vector、string退回不需要的内存空间，但是现实中此请求可被忽略，调用shrink_to_fit也不一定保证能够退回。</p>
+<p> ④capacity和size的区别</p>
+<p>size ： 已经保存元素的数目</p>
+<p>capacity ： 不分配新的内存可保存多少的元素</p>
+<p>⑤分配策略</p>
+<p>vector每次分配内存时将当前容量翻倍</p>
+<p>只有迫不得已时才会分配新的内存空间</p>
+<h4 id="9-5-string类型的额外操作"><a href="#9-5-string类型的额外操作" class="headerlink" title="9.5 string类型的额外操作"></a>9.5 string类型的额外操作</h4><p>除了顺序容器的共同操作外，string类型还提供了额外操作，要么是提供string类与c风格的字符数组的转换，要么是增加了允许我们使用下标代替迭代器的版本。</p>
+<p>1、构造string</p>
+<p>string s(cp,n)                           //s是cp指向的数组中前n个字符的拷贝</p>
+<p>string s(s2,pos2)                     //s是s2从下标pos2开始的字符拷贝</p>
+<p>string s(s2,pos2,len2)            //s是s2从下标pos2到len2的字符拷贝</p>
+<p>2、substr操作</p>
+<p>返回一个string，他是原始string的一部分或全部的拷贝</p>
+<p>s.substr (pos,n)    //返回一个string，包含s中从pos开始的n个字符的拷贝，默认从pos4开始的所有字符</p>
+<p>3、append和replace操作</p>
+<p>append ：在string的末尾插入</p>
+<p>replace ：调用insert和rease</p>
+<p>4、改变string的多种重载函数</p>
+<p>5、搜索操作</p>
+<p>string类提供了6个不同的搜索参数，每个函数有4个重载版本</p>
+<p><img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20211006105330764.png" alt="image-20211006105330764"></p>
+<p><img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20211006105348220.png" alt="image-20211006105348220"></p>
 <h3 id="第十章-泛型算法"><a href="#第十章-泛型算法" class="headerlink" title="第十章 泛型算法"></a>第十章 泛型算法</h3><h3 id="第十一章-关联容器"><a href="#第十一章-关联容器" class="headerlink" title="第十一章 关联容器"></a>第十一章 关联容器</h3><h3 id="第十二章-动态内存"><a href="#第十二章-动态内存" class="headerlink" title="第十二章 动态内存"></a>第十二章 动态内存</h3>
                 
             </div>
