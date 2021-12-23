@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="数据结构与算法基础（B站 青岛大学-王卓老师）, C/C++">
+    <meta name="keywords" content="数据结构（B站王卓老师）, C/C++">
     <meta name="description" content="Hi">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>数据结构与算法基础（B站 青岛大学-王卓老师） | C/C++</title>
+    <title>数据结构（B站王卓老师） | C/C++</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">数据结构与算法基础（B站 青岛大学-王卓老师）</h1>
+                    <h1 class="description center-align post-title">数据结构（B站王卓老师）</h1>
                 </div>
             </div>
         </div>
@@ -529,7 +529,87 @@
 <p>当n=0时称为空表 </p>
 <p>将非空的线性表（n&gt;0）记作：(a1，a2..an)</p>
 <p>这里的数据元素an只是一个抽象的符号，其具体含义在不同的情况下 可以不同。</p>
-<h2 id="2-2-案例"><a href="#2-2-案例" class="headerlink" title="2.2 案例"></a>2.2 案例</h2>
+<h2 id="2-2-案例"><a href="#2-2-案例" class="headerlink" title="2.2 案例"></a>2.2 案例</h2><h2 id="2-3-线性表的类型定义"><a href="#2-3-线性表的类型定义" class="headerlink" title="2.3 线性表的类型定义"></a>2.3 线性表的类型定义</h2><p>抽象数据类型线性表的定义</p>
+<p>ADT list{</p>
+<p>数据对象：</p>
+<p>数据关系：</p>
+<p>基本操作：初始化（initlist）、插入（）、初始化（clearlist）、获取元素（GetElem）…</p>
+<p>}</p>
+<h2 id="2-4-线性表的顺序表示和实现"><a href="#2-4-线性表的顺序表示和实现" class="headerlink" title="2.4 线性表的顺序表示和实现"></a>2.4 线性表的顺序表示和实现</h2><p>线性表的顺序表示又称为顺序存储结构或顺序映像。</p>
+<p>顺序存储定义：把逻辑上相邻的数据元素存储在物理上<strong>相邻的存储单元</strong>中的存储结构。</p>
+<h3 id="2-4-1线性表顺序存储"><a href="#2-4-1线性表顺序存储" class="headerlink" title="2.4.1线性表顺序存储"></a>2.4.1线性表顺序存储</h3><p>1.线性表顺序存储：（a1,a2,…,ai-1,ai,ai+1,…,an）,a1为基地址或者首地址</p>
+<p>注意：必须占用一片连续的存储空间</p>
+<p>顺序表 特点：任意元素可以随机存取、物理位置相邻表示逻辑关系。</p>
+<p>2.线性表顺序表示=&gt;数组表示</p>
+<p>线性表长度可变，而数组长度不可动态定义。</p>
+<p>一维数组定义方式：类型说明符 数组名[常量表达式（不能包括变量）]</p>
+<p>=&gt;用变量表示顺序表的长度属性</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#define LIST_INIT_SIZE 100//线性表空间的初始分配量</span><br><span class="line">typedef struct&#123;</span><br><span class="line">ElemType [LIST_INIT_SIZE];</span><br><span class="line">int length;//当前长度</span><br><span class="line">&#125;SqList；</span><br></pre></td></tr></table></figure>
+
+<p>例如：存储多项式Pn（x）=p1xe1+p2xe2+…+pnxen</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#define MAXSIZE 10000//线性表空间的初始分配量</span><br><span class="line"></span><br><span class="line">typedef struct&#123;        多项式非零项定义</span><br><span class="line">float p;             //系数</span><br><span class="line">int e;                //指数</span><br><span class="line">&#125;Polynomial；</span><br><span class="line"></span><br><span class="line">typedef struct&#123;</span><br><span class="line">Polynomial *elem;存储空间基地址</span><br><span class="line">int length;//多项式中当前项的个数</span><br><span class="line">&#125;SqList；//多项式中的顺序存储类型为SqList</span><br></pre></td></tr></table></figure>
+
+
+
+<p>3.类C语言补充</p>
+<p>①ElemType类型注意：int、char等类型</p>
+<p>②数组动态分配和静态分配</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//静态</span><br><span class="line">typedef struct&#123;       </span><br><span class="line">ElemType data[maxsize]; </span><br><span class="line">int length;</span><br><span class="line">&#125;sqlist；</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//动态</span><br><span class="line">typedef struct&#123;       </span><br><span class="line">ElemType *data; </span><br><span class="line">int length;</span><br><span class="line">&#125;sqlist；</span><br><span class="line"></span><br><span class="line">L.DATA=(ElemType*)malloc(sizeof(ElemType)*maxsize);</span><br></pre></td></tr></table></figure>
+
+<p>sizeof、malloc、free需要头文件&lt;stdlib.h&gt;</p>
+<p>new、delete</p>
+<p>③参数传递</p>
+<p>值传递</p>
+<p>引用传递</p>
+<p>指针传递</p>
+<h3 id="2-4-2-顺序表的操作"><a href="#2-4-2-顺序表的操作" class="headerlink" title="2.4.2 顺序表的操作"></a>2.4.2 顺序表的操作</h3><p><img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20211213090123523.png" alt="image-20211213090123523"></p>
+<p><img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20211213090650087.png" alt="image-20211213090650087"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//函数结果状态代码</span><br><span class="line">#define TRUE 1</span><br><span class="line">#define FALSE 0</span><br><span class="line">#define OK 1</span><br><span class="line">#define ERROR 0</span><br><span class="line">#define INFEASIBLE  -1</span><br><span class="line">#define  OVERFLOW -2</span><br><span class="line">//函数类型</span><br><span class="line">typedef int Status;</span><br><span class="line">typedef char ElemType;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//线性表L的初始化</span><br><span class="line">Status InitList_Sq(Sqlist &amp;L)</span><br><span class="line">&#123;</span><br><span class="line">L.elem=new ElemType[MAXSIZE];</span><br><span class="line">if(!L.elem)exit(OVERFLOW);//是否分配内存成功</span><br><span class="line">L.length=0;</span><br><span class="line">return ok;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">//线性表L的销毁</span><br><span class="line">void DestoryList(Sqlist &amp;L)</span><br><span class="line">&#123;</span><br><span class="line">L.elem=new ElemType[MAXSIZE];</span><br><span class="line">if(!L.elem)</span><br><span class="line">delete L.elem;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//线性表L的清空</span><br><span class="line">void ClearList(Sqlist &amp;L)</span><br><span class="line">&#123;</span><br><span class="line">L.lengthm=0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//线性表L的长度计算</span><br><span class="line">int GetLength(Sqlist L)</span><br><span class="line">&#123;</span><br><span class="line">return （L.lengthm）;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//顺序表的取值</span><br><span class="line">int GetElem(Sqlist L，int i，ElemType &amp;e)</span><br><span class="line">&#123;</span><br><span class="line">if(i&lt;1||L.length)</span><br><span class="line">return ERROR;  //判断i值是否合理；</span><br><span class="line">e=L.elem[i-1];  //第i个数据</span><br><span class="line">return ok;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>①顺序表的查找：</p>
+<p>基本操作：记录的关键字和同值进行比较 L.elem[i]==e</p>
+<p>平均查找长度ASL：为确定记录在表中的位置，需要给定值进行比较的关键字的个数的期望值叫做查找算法的平均查找长度。</p>
+<p>ASL=Pi*Ci（i=1到n的累乘）</p>
+<p>Ci：找到第i个记录需要比较的次数</p>
+<p>Pi：第i个记录被查找的概率</p>
+<p>顺序查找的平均查找长度：ASL=P1+2<em>P2+3</em>P3+…+n*Pn</p>
+<p>②顺序表的插入</p>
+<p>在第i个位置上，插入一个新节点e，是的长度为n的线性表变为1+n</p>
+<p>需要考虑位置是0-n+1，还有内存是否满了、溢出。</p>
+<p><img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20211213183524149.png" alt="image-20211213183524149"></p>
+<p>算法时间主要耗费在移动元素的操作上</p>
+<p>插入在尾结点后特别快，插入首节点前特别慢。</p>
+<p>③顺序表的删除</p>
+<p>删除元素后需要前移</p>
+<p>算法思想：(1)判断删除位置i是否合法</p>
+<p>​                   (2)将要删除的元素保留在e中</p>
+<p>​                   (3)将第i+1至第n位的元素一次向前移动一个位置</p>
+<p>​                   (4)表长减1，删除成功返回OK</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Status ListDelete_Sq(Sqlist&amp;L，int i)</span><br><span class="line">&#123;</span><br><span class="line">if((i&lt;1)||(i&gt;L.length))</span><br><span class="line">return ERROR;  //判断i值是否合理；</span><br><span class="line">for(j=i;j&lt;=L.length-1;j++)</span><br><span class="line">L.elem[j-1]=L.elem[j];</span><br><span class="line">L.length--;  //表长减1 </span><br><span class="line">return ok;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>顺序表的优缺点：</p>
+<p><img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20211213190542787.png" alt="image-20211213190542787"></p>
+<p>为了克服缺点=&gt;链表</p>
+<h2 id="2-5-线性表的链式表示和实现"><a href="#2-5-线性表的链式表示和实现" class="headerlink" title="2.5 线性表的链式表示和实现"></a>2.5 线性表的链式表示和实现</h2><h3 id="2-5-1-链式存储结构"><a href="#2-5-1-链式存储结构" class="headerlink" title="2.5.1 链式存储结构"></a>2.5.1 链式存储结构</h3><p>结点在存储器中的位置是任意的，逻辑上相邻，物理上未必相邻</p>
+<p>线性表的链式存储又称为非顺序映像或链式映像。</p>
+<p>用任意的存储单元存储数据元素</p>
+<p>结点包括数据域和指针域</p>
+<p>指针域：存储后继结点的存储位置</p>
+<p>数据域：存储元素数值数据</p>
+<p>单链表是由头指针唯一确定，因此单链表可以用头指针的名字来命名。</p>
+<h3 id="2-5-2-链式存储相关术语："><a href="#2-5-2-链式存储相关术语：" class="headerlink" title="2.5.2 链式存储相关术语："></a>2.5.2 链式存储相关术语：</h3><p>结点：</p>
+<p>链表：n个结点由指针链组成一个链表。</p>
+<p>2.5.3 单链表、双链表、循环链表</p>
+<p>单链表：结点只有一个指针域</p>
+<p>双链表：结点有两个指针域</p>
+<p>循环链表：首尾相接的链表 </p>
+
                 
             </div>
             <hr/>
