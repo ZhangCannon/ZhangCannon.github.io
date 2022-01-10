@@ -605,10 +605,98 @@
 <p>单链表是由头指针唯一确定，因此单链表可以用头指针的名字来命名。</p>
 <h3 id="2-5-2-链式存储相关术语："><a href="#2-5-2-链式存储相关术语：" class="headerlink" title="2.5.2 链式存储相关术语："></a>2.5.2 链式存储相关术语：</h3><p>结点：</p>
 <p>链表：n个结点由指针链组成一个链表。</p>
-<p>2.5.3 单链表、双链表、循环链表</p>
 <p>单链表：结点只有一个指针域</p>
 <p>双链表：结点有两个指针域</p>
 <p>循环链表：首尾相接的链表 </p>
+<p><img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20211214093204752.png" alt="image-20211214093204752"></p>
+<p>首元结点：链表中存储的第一个数据元素a1的结点</p>
+<p>头结点：是在链表的首元结点之前附设的一个结点</p>
+<p> 表示空表</p>
+<ul>
+<li>无头节点，头指针为空</li>
+<li>有头节点，头结点的指针域为空</li>
+</ul>
+<p>头结点的好处：</p>
+<p><img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20211214093857788.png" alt="image-20211214093857788"></p>
+<p>头结点的数据域内装的是：</p>
+<p><img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20211214094020115.png" alt="image-20211214094020115"></p>
+<p>链式存储的特点</p>
+<p><img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20211214094307290.png" alt="image-20211214094307290"></p>
+<h3 id="2-5-3-单链表的存储结构"><a href="#2-5-3-单链表的存储结构" class="headerlink" title="2.5.3 单链表的存储结构"></a>2.5.3 单链表的存储结构</h3><img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20211214095213010.png" alt="image-20211214095213010" style="zoom:80%;" />
+
+<p>单链表的存储结构：</p>
+<img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20211214095742359.png" alt="image-20211214095742359" style="zoom:67%;" />
+
+<p>例：存储学生学号姓名…</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">typedef Struct student&#123;</span><br><span class="line">char num[8];  //数据域</span><br><span class="line">char name[8];//数据域</span><br><span class="line">int score;//数据域</span><br><span class="line">struct student *next;//指针域</span><br><span class="line">&#125;Lnode,*LinkList;</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20211214100055129.png" alt="image-20211214100055129"></p>
+<p><img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20211214100153143.png" alt="image-20211214100153143"></p>
+<p>2.5.4 单链表的操作实现</p>
+<p>单链表的初始化：构造一个空表</p>
+<p>算法步骤：<img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20211215105102566.png" alt="image-20211215105102566"></p>
+<p>算法描述：<img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20211221102010996.png" alt="image-20211221102010996"></p>
+<p>2.5.5 简单算法补充</p>
+<p>1.判断链表是否为空</p>
+<p>判断头结点指针域是否为空</p>
+<p><img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20211221102234555.png" alt="image-20211221102234555"></p>
+<p>2.单链表的销毁</p>
+<p>从头指针开始依次释放所有的结点</p>
+<p> <img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20211221103255007.png" alt="image-20211221103255007"></p>
+<img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20211221103624876.png" alt="image-20211221103624876" style="zoom: 67%;" />
+
+<p>3.单链表的清空</p>
+<p><img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20211221104730989.png" alt="image-20211221104730989"></p>
+<p><img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20211221104802798.png" alt="image-20211221104802798"></p>
+<p>4.求链表的表长</p>
+<p><img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20211221105329380.png" alt="image-20211221105329380"></p>
+<p><img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20211221105652636.png" alt="image-20211221105652636"></p>
+<p>5.注意点</p>
+<p><img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20211221155558841.png" alt="image-20211221155558841"></p>
+<p><img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20211222194026066.png" alt="image-20211222194026066"></p>
+<p>6.取值</p>
+<p>取单链表的第i个元素</p>
+<p>从链表的头指针出发，顺着链域next逐个节点往下搜索，直到搜索到第i个结点。</p>
+<p>算法步骤：</p>
+<img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20211222192759794.png" alt="image-20211222192759794" style="zoom:80%;" />
+
+
+
+<p>算法：<img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20211222192841419.png" alt="image-20211222192841419" style="zoom:67%;" /></p>
+<p>7.按值查找</p>
+<p>①返回地址</p>
+<p><img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20211222194506770.png" alt="image-20211222194506770"></p>
+<p><img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20211222194525769.png" alt="image-20211222194525769"></p>
+<p>②返回第几个，位置序号</p>
+<p><img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20211222194823554.png" alt="image-20211222194823554"></p>
+<p>8.插入</p>
+<p>算法步骤：<img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20211222195717089.png" alt="image-20211222195717089"></p>
+<p><img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20211222201857000.png" alt="image-20211222201857000"></p>
+<p>9.删除</p>
+<p>删除第i个结点</p>
+<p>算法步骤：</p>
+<p><img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20211222202537359.png" alt="image-20211222202537359"></p>
+<p><img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20211222202617842.png" alt="image-20211222202617842"></p>
+<p>10.几种算法的时间效率分析</p>
+<p><img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20211222203358879.png" alt="image-20211222203358879"></p>
+<p>11.建立单链表：头插法</p>
+<p>单链表的建立</p>
+<p>前插法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">void createlist_h(Link &amp;L,int n)&#123;</span><br><span class="line">L=new LNode;</span><br><span class="line">L-&gt;next=NULL; //建立一个带头结点的单链表</span><br><span class="line">for(i=n;i&gt;0;--i)&#123;</span><br><span class="line">p=new LNode;        //生成新结点</span><br><span class="line">cin&gt;&gt;p-&gt;next;  //输入元素值scanf</span><br><span class="line">p-&gt;next=L-&gt;next;</span><br><span class="line">L-&gt;next=p; //插入表头</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>尾插法：元素插在链表尾部</p>
+<p><img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20211229152544445.png" alt="image-20211229152544445"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">p-&gt;data=ai；</span><br><span class="line"></span><br><span class="line">p-&gt;next=null；</span><br><span class="line"></span><br><span class="line">r-&gt;next=p；</span><br><span class="line"></span><br><span class="line">r=p；</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20211229152925805.png" alt="image-20211229152925805"></p>
+<h3 id="2-5-3循环列表"><a href="#2-5-3循环列表" class="headerlink" title="2.5.3循环列表"></a>2.5.3循环列表</h3><p>一种头尾相接的链表，最后一个结点的指针域指向头结点。</p>
+<p>优点：从表中任意结点都能找到其他结点。</p>
+<p>判断最后结点是否等于头指针来判断是否到最后的结点。</p>
+<p><img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20211229153635486.png" alt="image-20211229153635486"></p>
 
                 
             </div>
@@ -1066,7 +1154,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2021</span>
+                <span id="year">2021-2022</span>
             
             <span id="year">2021</span>
             <a href="/about" target="_blank">zhanghua</a>
