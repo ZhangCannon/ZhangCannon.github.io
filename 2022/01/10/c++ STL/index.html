@@ -514,41 +514,40 @@
 
 
 
+<h1 id="三、分配器"><a href="#三、分配器" class="headerlink" title="三、分配器"></a>三、分配器</h1><p>allocator，支持容器对内存的使用</p>
+<p>不建议直接用allocator，不好</p>
+<img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220111164522567.png" alt="image-20220111164522567" style="zoom:50%;" />
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
+<p>四、容器结构与分类</p>
+<h1 id="P80"><a href="#P80" class="headerlink" title="P80:"></a>P80:</h1><p>左侧的大小</p>
+<p>p82：G2.9版本</p>
+<p>右侧是源代码，默认是alloc，node是data，大小4字节。</p>
+<p>list_node定义了双向链表的结点，void_pointer这样定义不太好。</p>
+<p>注意左闭右开区间，iterator，begin和end位置。 </p>
+<p>iterator是个class</p>
+<p>p83：</p>
+<p>p84：</p>
+<p>前置：</p>
+<p>后置：</p>
+<p>postfix和prefix的返回类型为何有个reference？</p>
+<p>c++不允许后+2次，如（i++）++</p>
+<p>p85：</p>
+<p>*和-&gt;符号提取值</p>
+<p>p86</p>
+<p>list的iterator主要两部分，一是很多的typedef，而是操作符重载。</p>
+<p>两个版本对比。</p>
+<p>链表的指针应该指向自己这种类型。</p>
+<p>p88：iterator算法和容器的桥梁。</p>
+<p>iterator的五个准则：category、distance、value_type、reference、pointer</p>
+<p>p90</p>
+<p>iterator traits分离class和non-class iterators</p>
+<p>替指针回答五个问题。</p>
+<p>vector</p>
+<p>p94</p>
 
                 
             </div>
