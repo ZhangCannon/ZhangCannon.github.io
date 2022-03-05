@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="C++  STL, C/C++">
+    <meta name="keywords" content="计算机网络, C/C++">
     <meta name="description" content="Hi">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>C++  STL | C/C++</title>
+    <title>计算机网络 | C/C++</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">C++  STL</h1>
+                    <h1 class="description center-align post-title">计算机网络</h1>
                 </div>
             </div>
         </div>
@@ -443,7 +443,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-01-10
+                    2022-03-05
                 </div>
                 
 
@@ -464,91 +464,160 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="一、STL体系结构"><a href="#一、STL体系结构" class="headerlink" title="一、STL体系结构"></a>一、STL体系结构</h1><p>六大组件：</p>
-<p>1.容器</p>
-<p>存放各种数据结构，vector、string、list…，一种class template</p>
-<p>2.算法</p>
-<p>各种算法，sort、search…,一种function template</p>
-<p>3.迭代器</p>
-<p>扮演容器与算法之间的胶合剂，是所谓的泛型指针”。共有五种类型，以及其它衍生变化。从实现的角度来看，迭代器是一种将operator*, operator-&gt;, operator++, operator-－ 等指针相关操作予以重载的class template。 所有STL容器都附带有自己专属的迭代 器，只有容器设计者才知道如何遍历自己的元素。 原生指针(native pointer)也是 一种迭代器。</p>
-<p>4.仿函数</p>
-<p>行为类似函数，可作为算法的某种策略(policy)。从实现的角度来看，仿函数是一种重载了operator(）的class或class template。一般函数指针可视为狭义的仿函数。</p>
-<p>5.配接器</p>
-<p>一种用来修饰容器 (containers)或仿函数(functors) 或迭代器(iterators)接口的东西，详见第8章。 例如，STL提供的queue和 stack,虽然看似容器，其实只能算是一种容器配接器，因为它们的底部完全借助deque, 所有操作都由底层的deque供应。 改变functor接口者， 称为function adapter;改变container接口者，称为container adapter;改变iterator 接口者， 称为 iterator adapter。 配接器的实现技术很难一言以蔽之， 必须逐一分析。</p>
-<p>6.配置器</p>
-<p>负责空间配置与管理，配置器是一个实现了动态空间配置、空间管理、空间释放的classtemplate。</p>
-<h1 id="二、容器分类与各种测试"><a href="#二、容器分类与各种测试" class="headerlink" title="二、容器分类与各种测试"></a>二、容器分类与各种测试</h1><p>1.顺序容器</p>
-<img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220102161945782.png" alt="image-20220102161945782" style="zoom:67%;" />
-
-<p>①array容器的使用：</p>
-<img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220103105932938.png" alt="image-20220103105932938" style="zoom:50%;" />
-
-<p>②vector容器使用：</p>
-<img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220103132618419.png" alt="image-20220103132618419" style="zoom:50%;" />
-
-<p>③list容器使用</p>
-<p>某些标准库自带sort函数，某些容器也有sort，优先用容器自带的sort</p>
-<img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220103192406898.png" alt="image-20220103192406898" style="zoom:50%;" />
-
-<p>④forward list容器</p>
-<img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220103192848972.png" alt="image-20220103192848972" style="zoom: 33%;" />
-
-<p>⑤slist容器，等于forward list</p>
-<img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220103193052124.png" alt="image-20220103193052124" style="zoom:50%;" />
-
-<p>⑥deque</p>
-<p>2.关联容器</p>
-<img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220102185752555.png" alt="image-20220102185752555" style="zoom:50%;" />
-
-<p>3.Unordered container</p>
-<p>不定序容器，位置不固定，分散的</p>
-<p>就是一种关联容器</p>
-<p>底部用hash table做的</p>
-<img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220102190027586.png" alt="image-20220102190027586" style="zoom:50%;" />
+                <h2 id="第一章-概述"><a href="#第一章-概述" class="headerlink" title="第一章 概述"></a>第一章 概述</h2><h3 id="1-1-计算机网络作用"><a href="#1-1-计算机网络作用" class="headerlink" title="1.1  计算机网络作用"></a>1.1  计算机网络作用</h3><p>信息服务基础设施</p>
+<h3 id="1-2-因特网概述"><a href="#1-2-因特网概述" class="headerlink" title="1.2 因特网概述"></a>1.2 因特网概述</h3><p>网络由若干节点和连接这些结点的链路组成</p>
+<p><img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220305152300704.png" alt="image-20220305152300704"></p>
+<p>多个网络由路由器连接起来，构成了互联网</p>
+<p>因特网是最大的互联网</p>
+<p><img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220305151939732.png" alt="image-20220305151939732"></p>
+<p>因特尔服务提供者ISP,电信移动联通</p>
+<img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220305152238473.png" alt="image-20220305152238473" style="zoom: 80%;" />
 
 
 
-<p>一个指针在32位电脑上占4个字节</p>
-<p>hashtable</p>
-<img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220102191103721.png" alt="image-20220102191103721" style="zoom:50%;" />
+<p>因特网的组成</p>
+<p>路由器作用：转发收到的分组</p>
+<p><img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220305152449075.png" alt="image-20220305152449075"></p>
+<h3 id="1-3-三种交换方式"><a href="#1-3-三种交换方式" class="headerlink" title="1.3 三种交换方式"></a>1.3 三种交换方式</h3><p>电路交换：电话交换机接通电话线</p>
+<p>动态的分配传输线路</p>
+<img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220305152941961.png" alt="image-20220305152941961" style="zoom: 50%;" />
+
+<p>分组交换：</p>
+<img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220305153503237.png" alt="image-20220305153503237" style="zoom:67%;" />
+
+<p>报文交换：现在不用</p>
+<p>对比：</p>
+<img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220305153649473.png" alt="image-20220305153649473" style="zoom:67%;" />
 
 
 
-<h1 id="三、分配器"><a href="#三、分配器" class="headerlink" title="三、分配器"></a>三、分配器</h1><p>allocator，支持容器对内存的使用</p>
-<p>不建议直接用allocator，不好</p>
-<img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220111164522567.png" alt="image-20220111164522567" style="zoom:50%;" />
+<img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220305153356626.png" alt="image-20220305153356626" style="zoom: 80%;" />
+
+
+
+<h3 id="1-4-计算机网络的定义和分类"><a href="#1-4-计算机网络的定义和分类" class="headerlink" title="1.4 计算机网络的定义和分类"></a>1.4 计算机网络的定义和分类</h3><img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220305153933457.png" alt="image-20220305153933457" style="zoom:80%;" />
+
+<img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220305154346992.png" alt="image-20220305154346992" style="zoom:67%;" />
+
+
+
+<h3 id="1-5-性能指标"><a href="#1-5-性能指标" class="headerlink" title="1.5 性能指标"></a>1.5 性能指标</h3><p>度量计算机的性能:</p>
+<p>①速率</p>
+<img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220305154824766.png" alt="image-20220305154824766" style="zoom:80%;" />
+
+<p>②带宽</p>
+<img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220305155114942.png" alt="image-20220305155114942" style="zoom:80%;" />
+
+<p>③吞吐量</p>
+<img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220305155209876.png" alt="image-20220305155209876" style="zoom:80%;" />
+
+<p>④时延</p>
+<img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220305155954503.png" alt="image-20220305155954503" style="zoom:80%;" />
+
+<p>⑤时延带宽积</p>
+<p>传播时延与带宽乘积</p>
+<img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220305161340322.png" alt="image-20220305161340322" style="zoom:67%;" />
+
+
+
+<p>⑥往返时间</p>
+<img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220305161426213.png" alt="image-20220305161426213" style="zoom:80%;" />
+
+
+
+<p>⑦利用率</p>
+<img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220305161536572.png" alt="image-20220305161536572" style="zoom:80%;" />
+
+
+
+<p>⑧丢包率</p>
+<img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220305161648718.png" alt="image-20220305161648718" style="zoom:80%;" />
 
 
 
 
 
-<p>四、容器结构与分类</p>
-<h1 id="P80"><a href="#P80" class="headerlink" title="P80:"></a>P80:</h1><p>左侧的大小</p>
-<p>p82：G2.9版本</p>
-<p>右侧是源代码，默认是alloc，node是data，大小4字节。</p>
-<p>list_node定义了双向链表的结点，void_pointer这样定义不太好。</p>
-<p>注意左闭右开区间，iterator，begin和end位置。 </p>
-<p>iterator是个class</p>
-<p>p83：</p>
-<p>p84：</p>
-<p>前置：</p>
-<p>后置：</p>
-<p>postfix和prefix的返回类型为何有个reference？</p>
-<p>c++不允许后+2次，如（i++）++</p>
-<p>p85：</p>
-<p>*和-&gt;符号提取值</p>
-<p>p86</p>
-<p>list的iterator主要两部分，一是很多的typedef，而是操作符重载。</p>
-<p>两个版本对比。</p>
-<p>链表的指针应该指向自己这种类型。</p>
-<p>p88：iterator算法和容器的桥梁。</p>
-<p>iterator的五个准则：category、distance、value_type、reference、pointer</p>
-<p>p90</p>
-<p>iterator traits分离class和non-class iterators</p>
-<p>替指针回答五个问题。</p>
-<p>vector</p>
-<p>p94</p>
+<h3 id="1-6-计算机网络体系架构"><a href="#1-6-计算机网络体系架构" class="headerlink" title="1.6 计算机网络体系架构"></a>1.6 计算机网络体系架构</h3><h4 id="1-常见的计算机网络体系架构"><a href="#1-常见的计算机网络体系架构" class="headerlink" title="1.常见的计算机网络体系架构"></a>1.常见的计算机网络体系架构</h4><p>开放系统互联参考模型OSI：法律上的国际标准</p>
+<p><img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220305204137523.png" alt="image-20220305204137523"></p>
+<p>事实上的国际标准：</p>
+<p><img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220305162523370.png" alt="image-20220305162523370"></p>
+<img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220305162754084.png" alt="image-20220305162754084" style="zoom:67%;" />
 
+<img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220305162818329.png" alt="image-20220305162818329" style="zoom: 80%;" />
+
+<img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220305162916974.png" alt="image-20220305162916974" style="zoom:80%;" />
+
+<p>原理体系结构是用于学习</p>
+<h4 id="2-计算机网络体系架构分层的必要性"><a href="#2-计算机网络体系架构分层的必要性" class="headerlink" title="2.计算机网络体系架构分层的必要性"></a>2.计算机网络体系架构分层的必要性</h4><p>系统本身复杂，网络间一般由多台主机组成</p>
+<p>需要解决一些问题：传输媒介、标识网络中的主机、从比特流中区分地址和数据、网络主机共同编址问题</p>
+<p><img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220305185419983.png" alt="image-20220305185419983"></p>
+<h4 id="3-计算机网络体系结构分层思想举例"><a href="#3-计算机网络体系结构分层思想举例" class="headerlink" title="3.计算机网络体系结构分层思想举例"></a>3.计算机网络体系结构分层思想举例</h4><p>应用层：报文http等信息</p>
+<p>运输层：TCP报文段，源端口，目的端口等信息</p>
+<p>网络层：IP数据报，有http、tcp、ip等</p>
+<p>数据链路层：帧</p>
+<p>物理层：比特流</p>
+<img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220305202114999.png" alt="image-20220305202114999" style="zoom:80%;" />
+
+
+
+
+
+
+
+<h4 id="4-专用术语"><a href="#4-专用术语" class="headerlink" title="4.专用术语"></a>4.专用术语</h4><p>实体：</p>
+<img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220305202304952.png" alt="image-20220305202304952" style="zoom:80%;" />
+
+<p>协议：</p>
+<img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220305202359619.png" alt="image-20220305202359619" style="zoom:80%;" />
+
+<img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220305202606955.png" alt="image-20220305202606955" style="zoom:80%;" />
+
+
+
+<p>服务：</p>
+<p><img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220305202735258.png" alt="image-20220305202735258"></p>
+<img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220305202800395.png" alt="image-20220305202800395" style="zoom:80%;" />
+
+<img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220305202858283.png" alt="image-20220305202858283" style="zoom:80%;" />
+
+
+
+<p>小结：</p>
+<p><img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220305204058608.png" alt="image-20220305204058608"></p>
+<h2 id="第二章-物理层"><a href="#第二章-物理层" class="headerlink" title="第二章 物理层"></a>第二章 物理层</h2><h3 id="2-1-物理层基本概念"><a href="#2-1-物理层基本概念" class="headerlink" title="2.1 物理层基本概念"></a>2.1 物理层基本概念</h3><p>物理层考虑的是在连接计算机的传输媒体上传输数据比特流</p>
+<p>物理层为数据链路层屏蔽了各种传输媒体的差异，使得数据链路层只要考虑如何完成本层的协议和服务，不必考虑传输媒介。</p>
+<p>传输媒体分类：</p>
+<p><img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220305204739446.png" alt="image-20220305204739446"></p>
+<img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220305204814399.png" alt="image-20220305204814399" style="zoom:80%;" />
+
+
+
+<h3 id="2-2-物理层下面的传输媒体"><a href="#2-2-物理层下面的传输媒体" class="headerlink" title="2.2 物理层下面的传输媒体"></a>2.2 物理层下面的传输媒体</h3><p>导引型传输媒体和非导引型传输媒体：</p>
+<img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220305210233579.png" alt="image-20220305210233579" style="zoom:80%;" />
+
+
+
+<h3 id="2-3传输方式"><a href="#2-3传输方式" class="headerlink" title="2.3传输方式"></a>2.3传输方式</h3><p>串行传输和并行传输：</p>
+<img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220305210610266.png" alt="image-20220305210610266" style="zoom:80%;" />
+
+<p>同步传输和异步传输：</p>
+<p><img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220305210835348.png" alt="image-20220305210835348"></p>
+<p>单向通信、双向交替通行、双向同时通信：</p>
+<p><img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220305210932965.png" alt="image-20220305210932965"></p>
+<h3 id="2-4编码与调试"><a href="#2-4编码与调试" class="headerlink" title="2.4编码与调试"></a>2.4编码与调试</h3><img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220305211142701.png" alt="image-20220305211142701" style="zoom:150%;" />
+
+
+
+<img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220305211804997.png" alt="image-20220305211804997" style="zoom:150%;" />
+
+
+
+
+
+<h3 id="2-5-信道的极限容量"><a href="#2-5-信道的极限容量" class="headerlink" title="2.5 信道的极限容量"></a>2.5 信道的极限容量</h3><p><img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220305212023483.png" alt="image-20220305212023483"></p>
+<p><img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220305212114881.png" alt="image-20220305212114881"></p>
+<p><img src="C:\Users\zhanghua\AppData\Roaming\Typora\typora-user-images\image-20220305212132845.png" alt="image-20220305212132845"></p>
+<h2 id="第三章-数据链路层"><a href="#第三章-数据链路层" class="headerlink" title="第三章 数据链路层"></a>第三章 数据链路层</h2>
                 
             </div>
             <hr/>
@@ -574,7 +643,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://ZhangCannon.github.io/2022/01/10/c++%20STL/">http://ZhangCannon.github.io/2022/01/10/c++%20STL/</a>
+                    <a href="http://ZhangCannon.github.io/2022/03/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">http://ZhangCannon.github.io/2022/03/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -801,9 +870,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2022/03/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
                     <div class="card-image">
@@ -821,9 +891,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-03-05
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-05
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -832,6 +902,7 @@
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -842,13 +913,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/12/09/effective%20C++%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                <a href="/2022/01/10/c++%20STL/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Effective C++">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="C++  STL">
                         
-                        <span class="card-title">Effective C++</span>
+                        <span class="card-title">C++  STL</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -859,7 +930,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-09
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-10
                             </span>
                         <span class="publish-author">
                             
